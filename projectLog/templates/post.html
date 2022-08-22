@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/fab0f71904.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: rgb(233, 233, 233);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+        }
+        .upperBar{
+            display: flex;
+            background-color: white;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            height: 50px;
+            border-bottom: solid;
+            border-width: thin;
+            border-color: lightgray;
+        }
+        .upperLeft{
+            flex: 1;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: larger;
+        }
+        .upperMid{
+            flex: 3;
+            
+        }
+        .upperRight{
+            flex: 1;
+            
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            
+            
+        }
+        .thePost{
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+            background-color: white;
+            height: fit-content;
+            padding: 10px;
+            border: solid;
+            border-width: thin;
+            border-color: lightgray;
+            
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="upperBar">
+        <div class="upperLeft">
+            <h1>ProjectLog</h1>
+        </div>
+        <div class="upperMid"></div>
+        <div class="upperRight">
+            <a style="text-decoration: none;" href="/new">
+                <i class="fa-solid fa-plus fa-xl"></i>
+            </a>
+            
+            
+        </div>
+
+        
+    </div>
+    
+    <div class="thePost">
+        <h1 class="title">{{post.title}}</h1>
+            <p style="color: gray;">{{post.date}}</p>
+            <p>{{post.body}}</p>
+            <br>
+            <br>
+            <div class="buttons">
+                <a style="text-decoration: none; color:black" href=" {% url 'delete' post.id %} "><i class="fa-solid fa-trash"></i></a>
+                
+            </div>
+    </div>
+</body>
+</html>

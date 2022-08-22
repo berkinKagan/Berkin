@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Post</title>
+    <style>
+        body{
+            background-color: rgb(233, 233, 233);
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+            
+        }
+        textarea{
+            resize: none;
+            outline: none;
+            font-size: large;
+        }
+        .title{
+            flex: 1;
+        }
+        .body{
+            flex: 15;
+        }
+        input{
+            flex: 1;
+            background-color: white;
+            border-top: none;
+            transition: 100ms;
+        }
+        input:hover{
+            background-color: lightgray;
+            cursor: pointer;
+        }
+        .input{
+            display: flex;
+            flex-direction: row;
+            
+            padding: 10px;
+            
+        }
+        .input form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 700px;
+            width: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div class="input">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <textarea class="title" name="title" placeholder="title" ></textarea>
+            <textarea class="body" name="body" placeholder="type" ></textarea>
+            <input type="submit">
+        </form>
+    </div>
+    
+</body>
+</html>

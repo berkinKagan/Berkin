@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <script src="https://kit.fontawesome.com/fab0f71904.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: rgb(233, 233, 233);
+            display: flex;
+        }
+        .upperBar{
+            display: flex;
+            background-color: white;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            height: 50px;
+            border-bottom: solid;
+            border-width: thin;
+            border-color: lightgray;
+        }
+        .upperLeft{
+            flex: 1;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: larger;
+        }
+        .upperMid{
+            flex: 3;
+            
+        }
+        .upperRight{
+            flex: 1;
+            
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            
+            
+        }
+
+        .mainBar{
+            display: flex;
+            margin-top: 42px;
+            flex: 1;
+        }
+        .left{
+            flex: 1;
+            
+        }
+        .middle{
+            flex:2;
+            display: flex;
+            padding-top: 30px;
+            flex-direction: column;
+        }
+        .post{
+            background-color: white;
+            height: fit-content;
+            padding: 10px;
+            border: solid;
+            border-width: thin;
+            border-color: lightgray;
+        }
+        .right{
+            flex: 1;
+            
+        }
+        button{
+            background-color: white;
+            border: none;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="upperBar">
+        <div class="upperLeft">
+            <h1>ProjectLog</h1>
+        </div>
+        <div class="upperMid"></div>
+        <div class="upperRight">
+            <a style="text-decoration: none;" href="/new">
+                <i class="fa-solid fa-plus fa-xl"></i>
+            </a>
+        </div>
+    </div>
+    <div class="mainBar">
+        <div class="left"></div>
+        <div class="middle">
+            {% for post in posts %}
+            <div class="post">
+                <h1 class="title">{{post.title}}</h1>
+                <p style="color: gray;">{{post.date}}</p>
+                <p>{{post.body|truncatewords:30}}</p>
+                 
+                <br>
+                <a style="text-decoration: none; color:black" href=" {% url 'delete' post.id %} "><i class="fa-solid fa-trash"></i></a>
+                <a style="margin-left:30px; text-decoration: none; color:black" href=" {% url 'post' post.id %} "><i class="fa-solid fa-angle-right"></i></a>
+            </div>
+            <br>
+            <br>
+            {% endfor %}
+        </div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
